@@ -1,114 +1,141 @@
-<%- include('partials/head') %>
-<%- include('partials/header') %>
-<%- include('partials/navigation') %>
-
-<main class="main-content">
-    <!-- Vehicle Hero Section -->
-    <section class="vehicle-hero">
-        <div class="vehicle-intro">
-            <h1>Welcome to CSE Motors!</h1>
-            <div class="vehicle-featured">
-                <div class="vehicle-image">
-                    <img src="/images/delorean.jpg" alt="DMC DeLorean - The timeless classic" loading="lazy">
-                </div>
-                <div class="vehicle-details">
-                    <h2>DMC DeLorean</h2>
-                    <ul class="features-list">
-                        <li>3 Cup holders</li>
-                        <li>Superman doors</li>
-                        <li>Fuzzy dice!</li>
-                    </ul>
-                    <a href="/inventory/delorean" class="own-today-btn">Own Today</a>
-                </div>
-            </div>
+<section class="welcome-section">
+    <h2>Welcome to CSE Motors!</h2>
+    
+    <div class="vehicle-display">
+        <div class="vehicle-image">
+            <img src="/images/vehicles/delorean.jpg" alt="DMC DeLorean">
         </div>
-    </section>
-
-    <!-- Upgrades Section -->
-    <section class="upgrades-section">
-        <h2>DeLorean Upgrades</h2>
-        <div class="upgrades-grid">
-            <div class="upgrade-category">
-                <h3>Flux Capacitor</h3>
-                <div class="upgrade-options">
-                    <div class="upgrade-option">
-                        <input type="radio" id="flux-standard" name="flux-capacitor" value="standard">
-                        <label for="flux-standard">Standard Flux Capacitor</label>
-                    </div>
-                    <div class="upgrade-option">
-                        <input type="radio" id="flux-turbo" name="flux-capacitor" value="turbo" checked>
-                        <label for="flux-turbo">Turbo Flux Capacitor (+$2,500)</label>
+        
+        <div class="vehicle-details">
+            <h3>DMC DeLorean</h3>
+            <ul class="features">
+                <li>3 Cup holders</li>
+                <li>Superman doors</li>
+                <li>Fuzzy dice!</li>
+            </ul>
+            <button class="cta-button">Own Today</button>
+        </div>
+    </div>
+</section>
+<!-- Delorean Upgrades Section -->
+<section class="upgrades-section">
+    <h2>Delorean Upgrades</h2>
+    <div class="upgrades-grid">
+        <div class="upgrade-category">
+            <h3>Flux Capacitor</h3>
+            <div class="upgrade-options">
+                <div class="upgrade-item">
+                    <input type="radio" id="flux-standard" name="flux-capacitor" value="standard">
+                    <div class="upgrade-content">
+                        <div class="upgrade-image">
+                            <img src="/images/upgrades/flux-cap.png" alt="Standard Flux Capacitor">
+                        </div>
+                        <label for="flux-standard" class="upgrade-label">
+                            <span class="upgrade-name">Standard Flux Capacitor</span>
+                        </label>
                     </div>
                 </div>
-            </div>
-
-            <div class="upgrade-category">
-                <h3>Exterior Options</h3>
-                <div class="upgrade-options">
-                    <div class="upgrade-option">
-                        <input type="checkbox" id="flame-decals" name="exterior" value="flame-decals">
-                        <label for="flame-decals">Flame Decals (+$250)</label>
-                    </div>
-                    <div class="upgrade-option">
-                        <input type="checkbox" id="bumper-stickers" name="exterior" value="bumper-stickers">
-                        <label for="bumper-stickers">Bumper Stickers (+$35)</label>
-                    </div>
-                    <div class="upgrade-option">
-                        <input type="checkbox" id="hub-caps" name="exterior" value="hub-caps">
-                        <label for="hub-caps">Hub Caps (+$180)</label>
+                <div class="upgrade-item">
+                    <input type="radio" id="flux-turbo" name="flux-capacitor" value="turbo" checked>
+                    <div class="upgrade-content">
+                        <div class="upgrade-image">
+                            <img src="/images/upgrades/flux-cap.png" alt="Turbo Flux Capacitor">
+                        </div>
+                        <label for="flux-turbo" class="upgrade-label">
+                            <span class="upgrade-name">Turbo Flux Capacitor</span>
+                            <span class="upgrade-price">+$2,500</span>
+                        </label>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Reviews Section -->
-    <section class="reviews-section">
-        <h2>DMC DeLorean Reviews</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-text">
-                    "So fast it's almost like traveling in time."
+        <div class="upgrade-category">
+            <h3>Exterior Options</h3>
+            <div class="upgrade-options">
+                <div class="upgrade-item">
+                    <input type="checkbox" id="flame-decals" name="exterior" value="flame-decals">
+                    <div class="upgrade-content">
+                        <div class="upgrade-image">
+                            <img src="/images/upgrades/flame.jpg" alt="Flame Decals">
+                        </div>
+                        <label for="flame-decals" class="upgrade-label">
+                            <span class="upgrade-name">Flame Decals</span>
+                            <span class="upgrade-price">+$250</span>
+                        </label>
+                    </div>
                 </div>
-                <div class="review-rating">★★★★☆ <span>(4/5)</span></div>
-                <div class="review-author">- Speed Racer Magazine</div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-text">
-                    "Coolest ride on the road."
+                <div class="upgrade-item">
+                    <input type="checkbox" id="bumper-stickers" name="exterior" value="bumper-stickers">
+                    <div class="upgrade-content">
+                        <div class="upgrade-image">
+                            <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers">
+                        </div>
+                        <label for="bumper-stickers" class="upgrade-label">
+                            <span class="upgrade-name">Bumper Stickers</span>
+                            <span class="upgrade-price">+$35</span>
+                        </label>
+                    </div>
                 </div>
-                <div class="review-rating">★★★★☆ <span>(4/5)</span></div>
-                <div class="review-author">- Auto Enthusiast Weekly</div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-text">
-                    "I'm feeling McFly!"
+                <div class="upgrade-item">
+                    <input type="checkbox" id="hub-caps" name="exterior" value="hub-caps">
+                    <div class="upgrade-content">
+                        <div class="upgrade-image">
+                            <img src="/images/upgrades/hub-cap.jpg" alt="Hub Caps">
+                        </div>
+                        <label for="hub-caps" class="upgrade-label">
+                            <span class="upgrade-name">Hub Caps</span>
+                            <span class="upgrade-price">+$180</span>
+                        </label>
+                    </div>
                 </div>
-                <div class="review-rating">★★★★★ <span>(5/5)</span></div>
-                <div class="review-author">- Marty M.</div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-text">
-                    "The most futuristic ride of our day."
-                </div>
-                <div class="review-rating">★★★★½ <span>(4.5/5)</span></div>
-                <div class="review-author">- Future Cars Today</div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-text">
-                    "80's livin and I love it!"
-                </div>
-                <div class="review-rating">★★★★★ <span>(5/5)</span></div>
-                <div class="review-author">- Retro Rides Fan</div>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>
 
-<%- include('partials/footer') %>
-</body>
-</html>
+<!-- DMC Delorean Reviews Section -->
+<section class="reviews-section">
+    <h2>DMC Delorean Reviews</h2>
+    <div class="reviews-grid">
+        <div class="review-card">
+            <div class="review-text">
+                "So fast it's almost like traveling in time."
+            </div>
+            <div class="review-rating">★★★★☆ <span>(4/5)</span></div>
+            <div class="review-author">- Speed Racer Magazine</div>
+        </div>
+        
+        <div class="review-card">
+            <div class="review-text">
+                "Coolest ride on the road."
+            </div>
+            <div class="review-rating">★★★★☆ <span>(4/5)</span></div>
+            <div class="review-author">- Auto Enthusiast Weekly</div>
+        </div>
+        
+        <div class="review-card">
+            <div class="review-text">
+                "I'm feeling McFly!"
+            </div>
+            <div class="review-rating">★★★★★ <span>(5/5)</span></div>
+            <div class="review-author">- Marty M.</div>
+        </div>
+        
+        <div class="review-card">
+            <div class="review-text">
+                "The most futuristic ride of our day."
+            </div>
+            <div class="review-rating">★★★★½ <span>(4.5/5)</span></div>
+            <div class="review-author">- Future Cars Today</div>
+        </div>
+        
+        <div class="review-card">
+            <div class="review-text">
+                "80's livin and I love it!"
+            </div>
+            <div class="review-rating">★★★★★ <span>(5/5)</span></div>
+            <div class="review-author">- Retro Rides Fan</div>
+        </div>
+    </div>
+</section>
