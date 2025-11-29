@@ -318,6 +318,77 @@ input[type="checkbox"] {
     }
 }
 
+/* Vehicle Detail Styles */
+.vehicle-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.vehicle-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.vehicle-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vehicle-info h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: #333;
+}
+
+.vehicle-price {
+    font-size: 1.5rem;
+    color: #2c5282;
+    font-weight: bold;
+    padding: 0.5rem 0;
+}
+
+.vehicle-description {
+    line-height: 1.6;
+    color: #555;
+}
+
+.vehicle-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #f7fafc;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.vehicle-specs p {
+    margin: 0;
+    padding: 0.25rem 0;
+}
+
+/* Responsive design for larger screens */
+@media screen and (min-width: 768px) {
+    .vehicle-detail {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .vehicle-image {
+        flex: 1;
+        max-width: 50%;
+    }
+    
+    .vehicle-info {
+        flex: 1;
+        padding-left: 2rem;
+    }
+}
+
 /* Tablet and Desktop Styles */
 @media (min-width: 769px) {
     .upgrades-grid {

@@ -24,7 +24,6 @@ Util.getNav = async function (req, res, next) {
   return list
 }
 
-module.exports = Util
 
 /* **************************************
 * Build the classification view HTML
@@ -58,3 +57,44 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+/* **************************************
+* Build the detail view HTML
+* ************************************ */
+Util.buildDetailView = async function(vehicle) {
+  let detail = '<div class="vehicle-detail">';
+  detail += '<div class="vehicle-image">';
+  detail += '<img src="' + vehicle.inv_image 
+    + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model + '">';
+  detail += '</div>';
+  
+  detail += '<div class="vehicle-info">';
+  detail += '<h2>' + vehicle.inv_year + ' ' + vehicle.inv_make + ' ' + vehicle.inv_model + '</h2>';
+  
+  detail += '<div class="vehicle-price">';
+  detail += '<strong>Price: </strong>$' + new Intl.NumberFormat('en-US').format(vehicle.inv_price);
+  detail += '</div>';
+  
+  detail += '<div class="vehicle-description">';
+  detail += '<p><strong>Description: </strong>' + vehicle.inv_description + '</p>';
+  detail += '</div>';
+  
+  detail += '<div class="vehicle-specs">';
+  detail += '<p><strong>Color: </strong>' + vehicle.inv_color + '</p>';
+  detail += '<p><strong>Mileage: </strong>' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + ' miles</p>';
+  detail += '</div>';
+  
+  detail += '</div>';
+  detail += '</div>';
+  
+  return detail;
+};
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
+
+module.exports = Util
