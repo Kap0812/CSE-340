@@ -16,7 +16,7 @@ const utilities = require("./utilities/");
 const errorRoute = require("./routes/errorRoute");
 const session = require("express-session")
 const pool = require('./database/')
-
+const account = require("./routes/accountRoute")
 
 /* ***********************
  * Middleware
@@ -55,6 +55,7 @@ app.use("/inv", inventoryRoute)
 
 app.use("/error", errorRoute);
 
+app.use("/account", accountRoute)
 /* ***********************
  * Express Error Handler
  * Place after all other middleware
