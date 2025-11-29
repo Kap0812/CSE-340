@@ -55,7 +55,7 @@ app.use("/inv", inventoryRoute)
 
 app.use("/error", errorRoute);
 
-app.use("/account", accountRoute)
+app.use("/account", require("./routes/accountRoute"))
 /* ***********************
  * Express Error Handler
  * Place after all other middleware
