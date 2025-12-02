@@ -12,6 +12,13 @@ const utilities = require("../utilities")
  */
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
 
+
+/**
+ * process login 
+ */
+
+router.post("/login", regValidatel.loginRules(),regValidate.checkLoginData, utilities.handleErrors(accountController.accountLogin))
+
 /**
  * Deliver Registration view
  */
