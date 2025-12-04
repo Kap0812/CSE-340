@@ -12,6 +12,8 @@ const utilities = require("../utilities")
  */
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
 
+// Route to build account management view
+router.get("/", utilities.handleErrors(accountController.buildAccountManagement))
 
 /**
  * process login 

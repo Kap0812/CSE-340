@@ -99,5 +99,16 @@ async function accountLogin(req, res) {
     throw new Error('Access Forbidden')
   }
 }
+/* ****************************************
+ *  Build account management view
+ * ************************************ */
+async function buildAccountManagement(req, res) {
+  let nav = await utilities.getNav()
+  res.render("account/management", {
+    title: "Account Management",
+    nav,
+    errors: null,
+  })
+}
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin}
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement}
