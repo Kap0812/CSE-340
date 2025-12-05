@@ -6,20 +6,12 @@ const express = require("express")
 const router = new express.Router()
 const accountController = require("../controllers/accountController")
 const utilities = require("../utilities")
+const regValidate = require("../utilities/account-validation")
 
 /**
  * Deliver Login View 
  */
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
-
-// Route to build account management view
-router.get("/", utilities.handleErrors(accountController.buildAccountManagement))
-
-/**
- * process login 
- */
-
-router.post("/login", regValidatel.loginRules(),regValidate.checkLoginData, utilities.handleErrors(accountController.accountLogin))
 
 /**
  * Deliver Registration view
@@ -27,8 +19,28 @@ router.post("/login", regValidatel.loginRules(),regValidate.checkLoginData, util
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
 
 /**
- * process registration
+ * Process registration
  */
-router.post('/register', utilities.handleErrors(accountController.registerAccount))
+router.post(
+  '/register',
+  regValidate.registrationRules(),
+  regValidate.checkRegData,
+  utilities.handleErrors(accountController.registerAccount)
+)
+
+/**
+ * Process login 
+ */
+router.post(
+  "/login",
+  regValidate.loginRules(),
+  regValidate.checkLoginData,
+  utilities.handleErrors(accountController.accountLogin)
+)
+
+/**
+ * Route to build account management view (requires login)
+ */
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagement))
 
 module.exports = router;
