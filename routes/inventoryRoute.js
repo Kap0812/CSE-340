@@ -19,10 +19,16 @@ router.get("/add-classification", utilities.handleErrors(invController.buildAddC
 // Route to process add classification (POST)
 router.post("/add-classification", utilities.handleErrors(invController.addClassification));
 
+// Route select inv item activity
+router.get("/getInventory/:classification_id", utilities.checkAccountType, utilities.handleErrors(invController.getInventoryJSON))
+
 // Route to build add inventory view
 router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
 
 // Route to process add inventory (POST)
 router.post("/add-inventory", utilities.handleErrors(invController.addInventory));
+
+// Route to build inventory edit view
+router.get("/edit/:inv_id", utilities.handleErrors(invCont.editInventoryView))
 
 module.exports = router;

@@ -8,8 +8,8 @@ require("dotenv").config()
  ************************** */
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
-  let list = "<ul>"
-  list += '<li><a href="/" title="Home page">Home</a></li>'
+  let list = '<ul class="nav-list">'  // Add the class here
+  list += '<li><a href="/" title="Home page" class="nav-link">Home</a></li>'  // Add nav-link class
   data.rows.forEach((row) => {
     list += "<li>"
     list +=
@@ -17,7 +17,7 @@ Util.getNav = async function (req, res, next) {
       row.classification_id +
       '" title="See our inventory of ' +
       row.classification_name +
-      ' vehicles">' +
+      ' vehicles" class="nav-link">' +  // Add nav-link class
       row.classification_name +
       "</a>"
     list += "</li>"
@@ -177,5 +177,17 @@ Util.checkJWTToken = (req, res, next) => {
     return res.redirect("/account/login")
   }
  }
+
+ /* ****************************************
+ *  Check Account Type (Employee or Admin)
+ * ************************************ */
+Util.checkAccountType = (req, res, next) => {
+  if (res.locals.accountData && (res.locals.accountData.account_type === "Employee" || res.locals.accountData.account_type === "Admin")) {
+    next()
+  } else {
+    req.flash("notice", "You do not have permission to access this resource.")
+    return res.redirect("/account/login")
+  }
+}
 
 module.exports = Util
