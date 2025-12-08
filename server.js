@@ -45,6 +45,7 @@ app.use(cookieParser())
 
 app.use(utilities.checkJWTToken)
 
+
 /* ***********************
  * view and engine templates
  *************************/

@@ -5,9 +5,10 @@
         </div>
         <div class="account-link">
             <% if (locals.loggedin) { %>
-                <a href="/account/">My Account</a>
+                <a href="/account/" title="Click to manage your account">Welcome <%= locals.accountData.account_firstname %></a>
+                <a href="/account/logout" title="Click to log out">Logout</a>
             <% } else { %>
-                <a href="/account/login">My Account</a>
+                <a href="/account/login" title="Click to log in">My Account</a>
             <% } %>
         </div>
     </div>
