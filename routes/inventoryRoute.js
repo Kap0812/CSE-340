@@ -67,4 +67,17 @@ router.post(
   utilities.handleErrors(invController.updateInventory)
 )
 
+// Route to build delete confirmation view (PROTECTED)
+router.get("/delete/:inv_id", 
+  utilities.checkLogin, 
+  utilities.checkAccountType, 
+  utilities.handleErrors(invController.deleteInventoryView))
+
+// Route to process inventory deletion (POST) (PROTECTED)
+router.post("/delete/",
+  utilities.checkLogin,
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.deleteInventory)
+)
+
 module.exports = router;
